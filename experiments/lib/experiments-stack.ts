@@ -1,16 +1,21 @@
-import { Stack, StackProps } from 'aws-cdk-lib';
-import { Construct } from 'constructs';
+import { Stack, StackProps } from "aws-cdk-lib";
+import { Bucket } from "aws-cdk-lib/aws-s3";
+import { Construct } from "constructs";
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class ExperimentsStack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
-    super(scope, id, props);
+	constructor(scope: Construct, id: string, props?: StackProps) {
+		super(scope, id, props);
 
-    // The code that defines your stack goes here
+		// The code that defines your stack goes here
 
-    // example resource
-    // const queue = new sqs.Queue(this, 'ExperimentsQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
-  }
+		// example resource
+		// const queue = new sqs.Queue(this, 'ExperimentsQueue', {
+		//   visibilityTimeout: cdk.Duration.seconds(300)
+		// });
+
+		const bucket = new Bucket(this, "testBucket", {
+			bucketName: "test-bucket-tyler-witte",
+		});
+	}
 }
